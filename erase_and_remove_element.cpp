@@ -20,7 +20,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int removeElement(vector<int>& nums, int val) {
+int eraseFun(vector<int> nums, int val) {
     for(auto i = nums.begin(); i != nums.end();){
         if(*i == val){
             i = nums.erase(i);
@@ -29,8 +29,15 @@ int removeElement(vector<int>& nums, int val) {
     }
     return nums.size();
 }
+int removeFun(vector<int> nums, int val) {
+    vector<int>::iterator vectEle = remove(nums.begin(), nums.end(), val);
+    nums.erase(vectEle, nums.end());
+    return nums.size();
+}
 
 int main(){
-    cout << "hello\n";
+    cout << eraseFun({1,3,2,3,4,5}, 3);   //O(n)
+    cout << endl;
+    cout << removeFun({1,3,2,3,4,5}, 3);   //O(1)
     return 0;
 }
